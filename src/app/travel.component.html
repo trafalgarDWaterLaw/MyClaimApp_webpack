@@ -1,0 +1,65 @@
+<!--This is a dropdown-->
+<div class="form-group">
+	<label>From District</label>
+	<select class="form-control" [(ngModel)]="fDistSelected" name="d" required>
+          <option *ngFor="let d of fdistrict" [ngValue]="d">{{d}}</option>
+      </select>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>From City</label>
+	<input type="text" class="form-control" name="fCity" [(ngModel)]="fromCity" #fcity="ngModel" placeholder="travelled from city" required>
+	<div class="alert alert-danger" *ngIf="!fromCity">From City is required</div>
+</div>
+<!--This is a dropdown-->
+<div class="form-group">
+	<label>To District</label>
+	<select class="form-control" [(ngModel)]="toDistSelected" name="dist" required>
+          <option *ngFor="let dist of tdistrict" [ngValue]="dist">{{dist}}</option>
+      </select>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>To City</label>
+	<input type="text" class="form-control" name="tCity" [(ngModel)]="toCity" #tcity="ngModel" placeholder="travelled to city" required>
+	<div class="alert alert-danger" *ngIf="!toCity">To City is required</div>
+</div>
+<!--This is a dropdown-->
+<div class="form-group">
+	<label>Mode of Travel</label>
+	<select class="form-control" (change)="getClassOfTravel()" [(ngModel)]="moTSelected" name="moT" required>
+          <option *ngFor="let moT of modeOfTravel" [ngValue]="moT">{{moT}}</option>
+      </select>
+</div>
+<!--This is a dropdown-->
+<div class="form-group" *ngIf="isCot">
+	<label>Class of Travel</label>
+	<select class="form-control" [(ngModel)]="coTSelected" name="coT" required>
+          <option *ngFor="let coT of clasOfTravel" [ngValue]="coT">{{coT}}</option>
+      </select>
+</div>
+<!--This is a text box-->
+<div class="form-group" *ngIf="isKms">
+	<label>KMs</label>
+	<input type="text" class="form-control" name="kms" [(ngModel)]="kilometers" #kms="ngModel" placeholder="km's travelled" required>
+	<div class="alert alert-danger" *ngIf="!kilometers">KMs is required</div>
+</div>
+<!--This is a text box-->
+<div class="form-group" *ngIf="isRate">
+	<label>Rate (in Rs.)</label>
+	<input type="text" class="form-control" name="rte" [(ngModel)]="rate" #rte="ngModel" placeholder="rate in Rs." required>
+	<div class="alert alert-danger" *ngIf="!rate">Rate is required</div>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>Remark</label>
+	<input type="text" class="form-control" name="rem" [(ngModel)]="remark" #rem="ngModel" placeholder="remark" required>
+	<div class="alert alert-danger" *ngIf="!remark">Remark is required</div>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>Expense</label>
+	<input type="text" class="form-control" name="exp" [(ngModel)]="expense" #exp="ngModel" placeholder="enter the total Expense" required>
+	<div class="alert alert-danger" *ngIf="!expense">Expense is required</div>
+</div>
+<button type="submit" class="btn btn-default" (click)="addClaim()">Add Claim</button>

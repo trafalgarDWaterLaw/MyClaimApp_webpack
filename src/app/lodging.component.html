@@ -1,0 +1,43 @@
+<!--This is a dropdown-->
+<div class="form-group">
+	<label>District</label>
+	<select class="form-control" [(ngModel)]="distSelected" name="dist" required>
+          <option *ngFor="let dist of district" [ngValue]="dist">{{dist}}</option>
+      </select>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>City</label>
+	<input type="text" class="form-control" name="cty" [(ngModel)]="city" #cty="ngModel" placeholder="enter the city"required>
+	<div class="alert alert-danger" *ngIf="!city">City is required</div>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>No. of Days</label>
+	<input type="text" class="form-control" name="nod" [(ngModel)]="noOfDays" #nod="ngModel" placeholder="no of days" required>
+	<div class="alert alert-danger" *ngIf="!noOfDays">No. Of Days is required</div>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>Base Amount (in Rs.)</label>
+	<input type="text" class="form-control" name="bAmnt" [(ngModel)]="baseAmnt" #bAmnt="ngModel" placeholder="Base Amnt" required>
+	<div class="alert alert-danger" *ngIf="!baseAmnt">Base Amount is required</div>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>Tax (in Rs.)</label>
+	<input type="text" class="form-control" name="tx" [(ngModel)]="tax" #tx="ngModel" placeholder="tax in Rs." required>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>Remark</label>
+	<input type="text" class="form-control" name="rem" [(ngModel)]="remark" #rem="ngModel" placeholder="remark" required>
+	<div class="alert alert-danger" *ngIf="!remark">Remark is required</div>
+</div>
+<!--This is a text box-->
+<div class="form-group">
+	<label>Expense</label>
+	<input type="text" class="form-control" name="exp" [(ngModel)]="expense" #exp="ngModel" placeholder="Enter the total Expense" required>
+	<div class="alert alert-danger" *ngIf="!expense">Expense is required</div>
+</div>
+<button type="submit" class="btn btn-default" (click)="addClaim()">Add Claim</button>
